@@ -7,7 +7,7 @@ st.set_page_config(page_title='Chatbot using replicate')
 with st.sidebar:
 
     st.title('Chatbots Comparision')
-    st.write('This chatbot is created for comparing responses from the open-source Llama2, Mistral, and Gemma LLM model.')
+    st.write('This chatbot is created for comparing responses from the open-source Llama2, Mistral, Gemma, Lanne M1 LLM model.')
     if 'REPLICATE_API_TOKEN' in st.secrets:
         st.success('API key already provided!', icon='✅')
         replicate_api = st.secrets['REPLICATE_API_TOKEN']
@@ -123,9 +123,6 @@ def generate_response(input):
 
     #return output
 
-#input = st.text_input("")
-# st.write(generate_response(input))
-
 if input := st.chat_input(disabled=not replicate_api):
     st.session_state.messages.append({"role": "user", "content": input})
     with st.chat_message("user"):
@@ -133,7 +130,7 @@ if input := st.chat_input(disabled=not replicate_api):
 
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
-        with st.spinner("Thinking..."):
+        with st.spinner("Generating..."):
             response = generate_response(input)
     #         placeholder = st.empty()
     #         full_response = ''
