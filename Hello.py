@@ -4,8 +4,6 @@ import os
 
 st.set_page_config(page_title='Chatbot using replicate')
 
-os.environ['REPLICATE_API_TOKEN'] = 'r8_8dyqvvalBYZg95hmgz7ZCwWeo5RHIHR00ezAP'
-
 with st.sidebar:
 
     st.title('Chatbots Comparision')
